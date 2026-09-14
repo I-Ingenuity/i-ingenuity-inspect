@@ -1,11 +1,11 @@
 import type { WorkOrder } from '@/src/types/WorkOrder';
 import { getActiveWorkOrderUuid, getToken, setActiveWorkOrderUuid } from '@/src/utils/storage';
-import { Directory, File } from 'expo-file-system';
+import { File } from 'expo-file-system';
 import { deleteDatabaseSync } from 'expo-sqlite';
-import { sqliteDirectory } from '@/src/db';
+import { sqliteDirectory, sqliteFileDirectory } from '@/src/db';
 import client from "./client";
 
-const sqliteDir = new Directory( sqliteDirectory );
+const sqliteDir = sqliteFileDirectory;
 
 export const workOrdersApi = {
 	getAll: () => client.get<WorkOrder[]>( '/work-orders' ),
