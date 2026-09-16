@@ -43,3 +43,7 @@ app-example
 # generated native folders
 /ios
 /android
+
+# local store artifacts (eas build --local --output)
+*.aab
+*.ipa
